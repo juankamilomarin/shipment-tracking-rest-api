@@ -1,14 +1,15 @@
 {
-  "name": "shipment-tracking-rest-api",
-  "version": "1.0.0",
-  "description": "Rest API service for the Shipment Tracking App",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "author": "Juan Camilo Marin",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+    "name": "shipment-tracking-rest-api",
+    "version": "1.0.0",
+    "description": "Rest API service for the Shipment Tracking App",
+    "main": "index.js",
+    "scripts": {
+        "start": "node --unhandled-rejections=strict index.js"
+    },
+    "author": "Juan Camilo Marin",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1",
+        "pg": "^8.4.2"
+    }
 }
