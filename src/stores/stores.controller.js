@@ -7,7 +7,7 @@ exports.list = async (_, res) => {
         .then(result => {
             result.rows.length === 0
                 ? res.status(204).send({})
-                : res.status(200).send(result.rows[0])
+                : res.status(200).send(result.rows)
         })
         .catch(error => {
             console.error(error.stack)
