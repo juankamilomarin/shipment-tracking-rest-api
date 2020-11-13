@@ -1,6 +1,6 @@
 const { dbClient } = require("../common/services/node-postgres.service");
 
-exports.list = async (_, res) => {
+exports.list = async (_, res, next) => {
     const text = "SELECT id, name, active FROM store";
 
     dbClient.query(text)
@@ -9,10 +9,7 @@ exports.list = async (_, res) => {
                 ? res.status(204).send([])
                 : res.status(200).send(result.rows)
         })
-        .catch(error => {
-            console.error(error.stack)
-            res.status(500).send(error.message)
-        })
+        .catch(error => next(error))
 };
 
 exports.getById = async (req, res) => {
@@ -25,10 +22,7 @@ exports.getById = async (req, res) => {
                 ? res.status(204).send({})
                 : res.status(200).send(result.rows[0])
         })
-        .catch(error => {
-            console.error(error.stack)
-            res.status(500).send(error.message)
-        })
+        .catch(error => next(error))
 };
 
 exports.insert = async (req, res) => {
@@ -39,10 +33,7 @@ exports.insert = async (req, res) => {
         .then(result => {
             res.status(201).send(result.rows[0])
         })
-        .catch(error => {
-            console.error(error.stack)
-            res.status(500).send(error.message)
-        })
+        .catch(error => next(error))
 };
 
 exports.delete = async (req, res) => {
@@ -53,8 +44,5 @@ exports.delete = async (req, res) => {
         .then(() => {
             res.status(204).send({})
         })
-        .catch(error => {
-            console.error(error.stack)
-            res.status(500).send(error.message)
-        })
+        .catch(error => next(error))
 };
