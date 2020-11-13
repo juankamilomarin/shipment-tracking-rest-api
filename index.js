@@ -8,6 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 mountRoutes(app);
 app.use(errorHandlerMiddleware)
+// Implement auth
 
 app.listen(config.port, () => {
     console.log(`Application listening at port ${config.port}`)

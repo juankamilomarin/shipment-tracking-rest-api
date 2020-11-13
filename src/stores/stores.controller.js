@@ -46,3 +46,5 @@ exports.delete = async (req, res) => {
         })
         .catch(error => next(error))
 };
+
+// TODO Add controller for updating data
