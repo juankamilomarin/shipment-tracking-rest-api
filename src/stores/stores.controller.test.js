@@ -4,11 +4,6 @@ var httpMocks = require('node-mocks-http');
 
 describe('stores.controller.list', () => {
 
-    beforeEach(() => {
-        jest.clearAllMocks()
-        global.console.error = jest.fn().mockImplementation(() => {})
-    })
-
     test('should execute expected query', async () => {
         let actualQuery = null
         dbClient.query = jest.fn().mockImplementation((query) => {
