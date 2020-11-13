@@ -6,7 +6,7 @@ exports.list = async (_, res) => {
     dbClient.query(text)
         .then(result => {
             result.rows.length === 0
-                ? res.status(204).send({})
+                ? res.status(204).send([])
                 : res.status(200).send(result.rows)
         })
         .catch(error => {
