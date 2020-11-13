@@ -1,6 +1,10 @@
 const errorHandlerMiddleware = require('./error.handler.middleware')
 const httpMocks = require('node-mocks-http');
 
+jest.mock('uuid', () => ({
+    v4: () => 'uuid'
+}))
+
 describe('error.handler.middleware', () => {
 
     const res = httpMocks.createResponse()
@@ -26,13 +30,14 @@ describe('error.handler.middleware', () => {
             stack: 'Error tack'
         }
         errorHandlerMiddleware(err, {}, res)
-        expect(actualErrorMessage).toBe('Error tack')
+        expect(actualErrorMessage).toBe('Error ID - uuid - Stack - Error tack')
     })
 
     test('should return 500 status and error message', () => {
         errorHandlerMiddleware(err, {}, res)
         expect(res.statusCode).toBe(500)
         expect(res._getData()).toStrictEqual({ 
+            id: 'uuid',
             error: 'Error message'
         })
     })
