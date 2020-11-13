@@ -4,7 +4,8 @@
     "description": "Rest API service for the Shipment Tracking App",
     "main": "index.js",
     "scripts": {
-        "start": "node --unhandled-rejections=strict index.js"
+        "start": "node --unhandled-rejections=strict index.js",
+        "test": "jest --watch"
     },
     "author": "Juan Camilo Marin",
     "license": "ISC",
@@ -12,5 +13,9 @@
         "body-parser": "^1.19.0",
         "express": "^4.17.1",
         "pg": "^8.4.2"
+    },
+    "devDependencies": {
+        "jest": "^26.6.3",
+        "node-mocks-http": "^1.9.0"
     }
 }
