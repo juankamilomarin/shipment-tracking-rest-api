@@ -7,9 +7,9 @@ exports.list = async (_, res, next) => {
         .then(result => {
             result.rows.length === 0
                 ? res.status(204).send([])
-                : res.status(200).send(result.rows)
+                : res.status(200).send(result.rows);
         })
-        .catch(error => next(error))
+        .catch(error => next(error));
 };
 
 exports.getById = async (req, res) => {
@@ -20,9 +20,9 @@ exports.getById = async (req, res) => {
         .then(result => {
             result.rows.length === 0
                 ? res.status(204).send({})
-                : res.status(200).send(result.rows[0])
+                : res.status(200).send(result.rows[0]);
         })
-        .catch(error => next(error))
+        .catch(error => next(error));
 };
 
 exports.insert = async (req, res) => {
@@ -31,9 +31,9 @@ exports.insert = async (req, res) => {
 
     dbClient.query(text, values)
         .then(result => {
-            res.status(201).send(result.rows[0])
+            res.status(201).send(result.rows[0]);
         })
-        .catch(error => next(error))
+        .catch(error => next(error));
 };
 
 exports.delete = async (req, res) => {
@@ -42,9 +42,9 @@ exports.delete = async (req, res) => {
 
     dbClient.query(text, values)
         .then(() => {
-            res.status(204).send({})
+            res.status(204).send({});
         })
-        .catch(error => next(error))
+        .catch(error => next(error));
 };
 
 // TODO Add controller for updating data

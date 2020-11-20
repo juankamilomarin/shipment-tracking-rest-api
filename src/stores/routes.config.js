@@ -1,4 +1,4 @@
-const StoresController = require('./stores.controller')
+const StoresController = require('./stores.controller');
 
 exports.routesConfig = function (app) {
     app.get('/stores', StoresController.list);

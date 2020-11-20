@@ -1,6 +1,7 @@
 version: '3.6'
 services:
   postgres:
+    container_name: shipment-tracking-postgres-db
     image: postgres:12
     ports:
       - "5433:5432"
